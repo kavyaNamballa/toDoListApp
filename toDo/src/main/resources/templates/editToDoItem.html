@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit ToDo Item</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <style>
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="p-3">Edit ToDo Item</h1>
+        <form th:action="@{/edit}" th:object="${todo}" method="post">
+            <div class="form-group">
+                <input type="hidden" th:field="*{id}" />
+            </div>
+            <div class="form-group">
+                <label for="title">Title: </label>
+                <input class="form-control" type="text" id="title" th:field="*{title}"/>
+            </div>
+            <div class="form-group">
+                <label for="date">Date: </label>
+                <input class="form-control" type="date" id="date" th:field="*{date}"/>
+            </div>
+            <div class="form-group">
+                <label for="status">Status: </label>
+                <input class="form-control" type="text" id="status" th:field="*{status}"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save changes </button>
+        </form>
+    </div>
+</body>
+</html>
